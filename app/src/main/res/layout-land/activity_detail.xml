@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D0D0D"
+    tools:context=".DetailActivity">
+
+    <TextView
+        android:id="@+id/release_data_tag2"
+        android:layout_width="52dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDOverview"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:text="@string/genres"
+        android:textColor="@android:color/background_light"
+        tools:text="@string/genres" />
+
+    <TextView
+        android:id="@+id/tvDTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivThumb"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/proxima_nova_alt_bold"
+        android:text="@string/movie_title"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@android:color/background_light" />
+
+    <TextView
+        android:id="@+id/tvDOverview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDate"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="7dp"
+        android:fontFamily="@font/proxima_nova_alt_light"
+        android:text="@string/text_view"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/background_light"
+        android:textColorHighlight="#FF6D00"
+        android:textSize="14sp" />
+
+    <RatingBar
+        android:id="@+id/rbVoteAverage"
+        style="@style/RatingBar"
+        android:layout_width="277dp"
+        android:layout_height="41dp"
+        android:layout_above="@+id/tvDOverview"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="353dp"
+        android:layout_marginBottom="3dp"
+        android:numStars="5"
+        android:stepSize="0.5" />
+
+    <ImageView
+        android:id="@+id/ivThumb"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/release_data_tag"
+        android:layout_width="89dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="41dp"
+        android:ems="10"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:text="@string/release_data"
+        android:textColor="@android:color/background_light"
+        tools:text="@string/release_data" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDTitle"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="42dp"
+        android:layout_toEndOf="@+id/release_data_tag"
+        android:fontFamily="@font/proxima_nova_regular"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvGenres"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_below="@+id/tvDOverview"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="11dp"
+        android:layout_toEndOf="@+id/release_data_tag2"
+        android:fontFamily="@font/proxima_nova_regular"
+        android:text="@string/text_view"
+        android:textColor="@android:color/background_light" />
+</RelativeLayout>
