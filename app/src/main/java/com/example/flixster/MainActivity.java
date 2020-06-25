@@ -25,10 +25,12 @@ import java.util.Map;
 import okhttp3.Headers;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String TOP_RATED_URL = "https://api.themoviedb.org/3/movie/top_rated?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
-    public static final String UPCOMING_URL = "https://api.themoviedb.org/3/movie/upcoming?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
-    public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
-    public static final String MOVIE_GENRES_URL = "https://api.themoviedb.org/3/genre/movie/list?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    public static final String URL_PREFIX = "https://api.themoviedb.org/3/";
+    public static final String API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    public static final String TOP_RATED = "movie/top_rated";
+    public static final String UPCOMING = "movie/upcoming";
+    public static final String NOW_PLAYING = "movie/now_playing";
+    public static final String MOVIE_GENRES = "genre/movie/list";
     public static final String TAG = "MainActivity";
 
     List<Movie> movies;
@@ -49,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
 
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(TOP_RATED_URL, new JsonHttpResponseHandler() {
+
+        client.get(URL_PREFIX + NOW_PLAYING + "?api_key=" + API_KEY, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
                 Log.d(TAG, "onSuccess");
@@ -71,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        client.get(MOVIE_GENRES_URL, new JsonHttpResponseHandler() {
+        client.get(URL_PREFIX + MOVIE_GENRES + "?api_key=" + API_KEY, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
                 Log.d(TAG, "onSuccess");

@@ -1,12 +1,11 @@
 package com.example.flixster;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Parcel;
 import android.util.Log;
-import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -18,7 +17,7 @@ import com.example.flixster.models.Movie;
 
 import org.parceler.Parcels;
 
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import java.util.Objects;
 
 public class DetailActivity extends AppCompatActivity {
     private static final String TAG = "DetailActivity";

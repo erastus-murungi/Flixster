@@ -1,6 +1,5 @@
 package com.example.flixster.models;
 
-import android.content.Intent;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -22,7 +21,7 @@ public class Movie {
     private String mBackdropPath;
     private Double mVoteAverage;
     private Integer[] mGenres;
-    private boolean isAdult;
+    private boolean mIsAdult;
 
     public String getReleaseDate() {
         return mReleaseDate;
@@ -33,8 +32,8 @@ public class Movie {
     }
 
     private String mReleaseDate;
-    private Integer voteCount;
-    private Integer popularity;
+    private Integer mVoteCount;
+    private Integer mPopularity;
 
     public void setGenres(Integer[] genres) {
         this.mGenres = genres;
@@ -55,6 +54,7 @@ public class Movie {
         mVoteAverage = jsonObject.getDouble("vote_average");
         mGenres = toIntArray(jsonObject.getJSONArray("genre_ids"));
         mReleaseDate = jsonObject.getString("release_date");
+        mIsAdult = jsonObject.getBoolean("adult");
     }
 
     private static Integer[] toIntArray(JSONArray jsonArray) throws JSONException {
