@@ -6,5 +6,6 @@
     <string name="genres">Genres:</string>
     <string name="movie_poster">Movie Poster</string>
     <string name="data_unavailable">Date Unavailable</string>
+    <string name="now_playing">Now Playing</string>
 
 </resources>

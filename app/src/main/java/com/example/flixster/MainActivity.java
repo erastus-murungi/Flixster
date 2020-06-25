@@ -27,8 +27,6 @@ import okhttp3.Headers;
 public class MainActivity extends AppCompatActivity {
     public static final String URL_PREFIX = "https://api.themoviedb.org/3/";
     public static final String API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed";
-    public static final String TOP_RATED = "movie/top_rated";
-    public static final String UPCOMING = "movie/upcoming";
     public static final String NOW_PLAYING = "movie/now_playing";
     public static final String MOVIE_GENRES = "genre/movie/list";
     public static final String TAG = "MainActivity";

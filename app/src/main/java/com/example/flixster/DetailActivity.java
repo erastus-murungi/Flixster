@@ -38,6 +38,12 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+
+        ActionBar actionBar = getSupportActionBar(); // or getActionBar();
+//        Objects.requireNonNull(getSupportActionBar()).setTitle("My new title"); // set the top title
+        assert actionBar != null;
+        actionBar.hide();
+
         tvDTitle = findViewById(R.id.tvDTitle);
         tvDOverview = findViewById(R.id.tvDOverview);
         rbVoteAverage = findViewById(R.id.rbVoteAverage);

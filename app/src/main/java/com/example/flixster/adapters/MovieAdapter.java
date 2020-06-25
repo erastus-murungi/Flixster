@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -121,7 +120,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                 intent.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
                 intent.putExtra(GENRE, getGenres(movie));
                 context.startActivity(intent);
-                Toast.makeText(context, tvTitle.getText(), Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -131,6 +129,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             }
             return true;
         }
+
+        /**
+         * Rounds the margins of an ImageView and sends the modified ImageView to the display
+         */
 
         public void loadRoundImage(ImageView imageView, String url, int drawableId) {
             if (imageView == null) {

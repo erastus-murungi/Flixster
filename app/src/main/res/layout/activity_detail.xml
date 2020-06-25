@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D0D0D"
+    android:background="@color/colorPrimary"
     tools:context=".DetailActivity">
 
     <ScrollView
@@ -36,7 +36,7 @@
                 android:text="@string/movie_title"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textColor="@android:color/background_light" />
+                android:textColor="#FFFFFF" />
 
             <LinearLayout
                 android:id="@+id/line1"
@@ -54,7 +54,7 @@
                     android:ems="10"
                     android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/release_data"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     tools:text="@string/release_data" />
 
@@ -67,7 +67,8 @@
                     android:fontFamily="@font/proxima_nova_regular"
                     android:text="@string/data_unavailable"
                     android:textAlignment="viewStart"
-                    android:textColor="#E91E63"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -91,7 +92,7 @@
                     android:fontFamily="@font/proxima_nova_regular"
                     android:text="@string/text_view"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="#FFFFFF"
                     android:textColorHighlight="#FF6D00"
                     android:textSize="18sp" />
 
@@ -105,7 +106,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="3dp"
                     android:numStars="5"
-                    android:progressTint="#E91E63"
+                    android:progressTint="@color/colorAccent"
                     android:stepSize="0.5" />
 
                 <LinearLayout
@@ -118,10 +119,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
                         android:ems="10"
                         android:fontFamily="@font/proxima_nova_bold"
                         android:text="@string/genres"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp"
                         tools:text="@string/genres" />
 
@@ -131,9 +133,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
                         android:fontFamily="@font/proxima_nova_regular"
                         android:text="@string/text_view"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
