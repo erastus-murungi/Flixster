@@ -93,7 +93,7 @@
                     android:text="@string/text_view"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="#FFFFFF"
-                    android:textColorHighlight="#FF6D00"
+                    android:textColorHighlight="@color/colorAccent"
                     android:textSize="18sp" />
 
                 <RatingBar

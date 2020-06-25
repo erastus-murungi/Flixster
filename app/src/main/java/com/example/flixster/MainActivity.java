@@ -26,7 +26,6 @@ import okhttp3.Headers;
 
 public class MainActivity extends AppCompatActivity {
     public static final String URL_PREFIX = "https://api.themoviedb.org/3/";
-    public static final String API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed";
     public static final String NOW_PLAYING = "movie/now_playing";
     public static final String MOVIE_GENRES = "genre/movie/list";
     public static final String TAG = "MainActivity";
@@ -40,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // set the action bar title
+        setTitle("Now Playing");
+
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
 
         movies = new ArrayList<>();
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         AsyncHttpClient client = new AsyncHttpClient();
 
-        client.get(URL_PREFIX + NOW_PLAYING + "?api_key=" + API_KEY, new JsonHttpResponseHandler() {
+        client.get(URL_PREFIX + NOW_PLAYING + "?api_key=" + getString(R.string.moviedb_api_key), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
                 Log.d(TAG, "onSuccess");
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        client.get(URL_PREFIX + MOVIE_GENRES + "?api_key=" + API_KEY, new JsonHttpResponseHandler() {
+        client.get(URL_PREFIX + MOVIE_GENRES + "?api_key=" + getString(R.string.moviedb_api_key), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
                 Log.d(TAG, "onSuccess");

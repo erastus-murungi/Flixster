@@ -21,7 +21,17 @@ public class Movie {
     private String mBackdropPath;
     private Double mVoteAverage;
     private Integer[] mGenres;
-    private boolean mIsAdult;
+    private String mReleaseDate;
+    private Integer mMovieId;
+
+    public Integer getMovieId() {
+        return mMovieId;
+    }
+
+    public void setMovieId(Integer movieId) {
+        this.mMovieId = movieId;
+    }
+
 
     public String getReleaseDate() {
         return mReleaseDate;
@@ -31,9 +41,8 @@ public class Movie {
         this.mReleaseDate = mReleaseDate;
     }
 
-    private String mReleaseDate;
-    private Integer mVoteCount;
-    private Integer mPopularity;
+//    private Integer mVoteCount;
+//    private Integer mPopularity;
 
     public void setGenres(Integer[] genres) {
         this.mGenres = genres;
@@ -54,7 +63,7 @@ public class Movie {
         mVoteAverage = jsonObject.getDouble("vote_average");
         mGenres = toIntArray(jsonObject.getJSONArray("genre_ids"));
         mReleaseDate = jsonObject.getString("release_date");
-        mIsAdult = jsonObject.getBoolean("adult");
+        mMovieId = jsonObject.getInt("id");
     }
 
     private static Integer[] toIntArray(JSONArray jsonArray) throws JSONException {
