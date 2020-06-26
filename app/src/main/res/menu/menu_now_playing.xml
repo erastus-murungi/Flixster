@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_night"
+        android:title="@string/go_back"
+        app:showAsAction="never"
+        android:onClick="closeApp"/>
+    <item
+        android:id="@+id/action_help"
+        android:title="@string/about"
+        app:showAsAction="never">
+    </item>
+
+</menu>

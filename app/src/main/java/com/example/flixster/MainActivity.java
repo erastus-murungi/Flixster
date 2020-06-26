@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // set the action bar title
-        setTitle("Now Playing");
+        setTitle(getString(R.string.now_playing));
 
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
 
@@ -111,7 +113,16 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "onFailure");
             }
         });
+    }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu_now_playing
+        // this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_now_playing, menu);
+        return true;
+    }
 
+    public void closeApp(MenuItem item) {
+        super.onBackPressed();
     }
 }

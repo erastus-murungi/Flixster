@@ -1,19 +1,17 @@
 package com.example.flixster;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
+import android.view.Menu;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
+
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.flixster.adapters.MovieAdapter;
@@ -34,7 +32,6 @@ import okhttp3.Headers;
 
 public class DetailActivity extends YouTubeBaseActivity {
     private static final String TAG = "DetailActivity";
-    public static final String VIDEO_ID = "item_youtube_video_id";
     private static final int RECOVERY_REQUEST = 1;
     Movie movie;
     String movieGenres;
@@ -52,6 +49,8 @@ public class DetailActivity extends YouTubeBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+
         context = this;
         // client to request for videos
         client = new AsyncHttpClient();
@@ -127,12 +126,6 @@ public class DetailActivity extends YouTubeBaseActivity {
 
     }
 
-    private void hideActionBar() {
-        ActionBar actionBar = getActionBar();
-        assert actionBar != null;
-        actionBar.hide();
-    }
-
     private void bindViews() {
         tvDOverview = findViewById(R.id.tvDOverview);
         rbVoteAverage = findViewById(R.id.rbVoteAverage);
@@ -167,32 +160,5 @@ public class DetailActivity extends YouTubeBaseActivity {
                 msg,
                 Toast.LENGTH_SHORT).show();
         Log.e(TAG, msg);
-    }
-
-    private boolean isValid(Context context) {
-        if (context instanceof AppCompatActivity) {
-            return !((AppCompatActivity) context).isDestroyed();
-        }
-        return true;
-    }
-
-    public void loadRoundImage(ImageView imageView, String url, int drawableId) {
-        if (imageView == null) {
-            Log.e(TAG, "loadRoundImage() -> imageView is null");
-            return;
-        }
-
-        Context context = imageView.getContext();
-        if (!isValid(context)) {
-            Log.e(TAG, "Invalid context");
-            return;
-        }
-
-        Glide.with(context)
-                .load(url)
-                .fitCenter()
-                .apply(new RequestOptions()
-                        .placeholder(drawableId))
-                .into(imageView);
     }
 }
