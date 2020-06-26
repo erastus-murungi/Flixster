@@ -7,5 +7,6 @@
     <string name="movie_poster">Movie Poster</string>
     <string name="data_unavailable">Date Unavailable</string>
     <string name="now_playing">Now Playing</string>
+    <string name="play_icon">Play Icon</string>
 
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,15 +7,16 @@
     android:background="@color/colorPrimary"
     tools:context=".DetailActivity">
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/layoutTop"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/layoutTop"
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/ivThumb"
@@ -25,121 +26,128 @@
                 android:contentDescription="@string/movie_poster"
                 tools:srcCompat="@tools:sample/avatars" />
 
+            <ImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/play_icon" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tvDTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/proxima_nova_alt_bold"
+            android:text="@string/movie_title"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#FFFFFF" />
+
+        <LinearLayout
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvDTitle"
-                android:layout_width="match_parent"
+                android:id="@+id/release_data_tag"
+                android:layout_width="99dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="11dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/proxima_nova_alt_bold"
-                android:text="@string/movie_title"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textColor="#FFFFFF" />
+                android:ems="10"
+                android:fontFamily="@font/proxima_nova_bold"
+                android:text="@string/release_data"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                tools:text="@string/release_data" />
 
-            <LinearLayout
-                android:id="@+id/line1"
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="11dp"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="@string/data_unavailable"
+                android:textAlignment="viewStart"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+
+            <TextView
+                android:id="@+id/tvDOverview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="@string/text_view"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="@color/colorAccent"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/release_data_tag"
-                    android:layout_width="99dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="11dp"
-                    android:ems="10"
-                    android:fontFamily="@font/proxima_nova_bold"
-                    android:text="@string/release_data"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    tools:text="@string/release_data" />
-
-                <TextView
-                    android:id="@+id/tvDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="11dp"
-                    android:fontFamily="@font/proxima_nova_regular"
-                    android:text="@string/data_unavailable"
-                    android:textAlignment="viewStart"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            <RatingBar
+                android:id="@+id/rbVoteAverage"
+                style="@android:style/Widget.Holo.Light.RatingBar.Indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="3dp"
+                android:numStars="5"
+                android:progressTint="@color/colorAccent"
+                android:stepSize="0.5" />
 
             <LinearLayout
-                android:id="@+id/linearLayout1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
-
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tvDOverview"
-                    android:layout_width="match_parent"
+                    android:id="@+id/genres_tag"
+                    android:layout_width="59dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="7dp"
-                    android:fontFamily="@font/proxima_nova_regular"
-                    android:text="@string/text_view"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#FFFFFF"
-                    android:textColorHighlight="@color/colorAccent"
-                    android:textSize="18sp" />
-
-                <RatingBar
-                    android:id="@+id/rbVoteAverage"
-                    style="@android:style/Widget.Holo.Light.RatingBar.Indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="3dp"
-                    android:numStars="5"
-                    android:progressTint="@color/colorAccent"
-                    android:stepSize="0.5" />
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:fontFamily="@font/proxima_nova_bold"
+                    android:text="@string/genres"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    tools:text="@string/genres" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/genres_tag"
-                        android:layout_width="59dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="20dp"
-                        android:ems="10"
-                        android:fontFamily="@font/proxima_nova_bold"
-                        android:text="@string/genres"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        tools:text="@string/genres" />
-
-                    <TextView
-                        android:id="@+id/tvGenres"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="7dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="20dp"
-                        android:fontFamily="@font/proxima_nova_regular"
-                        android:text="@string/text_view"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvGenres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/proxima_nova_regular"
+                    android:text="@string/text_view"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>

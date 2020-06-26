@@ -31,7 +31,6 @@ import okhttp3.Headers;
 
 public class DetailActivity extends AppCompatActivity {
     private static final String TAG = "DetailActivity";
-    private static final String GENRE = "item_genre";
     public static final String VIDEO_ID = "item_youtube_video_id";
     Movie movie;
     String movieGenres;
@@ -42,6 +41,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView tvGenres;
     RatingBar rbVoteAverage;
     ImageView ivThumb;
+    ImageView ivIcon;
     Context context;
 
 
@@ -64,32 +64,27 @@ public class DetailActivity extends AppCompatActivity {
         ivThumb = findViewById(R.id.ivThumb);
         tvDate = findViewById(R.id.tvDate);
         tvGenres = findViewById(R.id.tvGenres);
+        ivIcon = findViewById(R.id.ivIcon);
 
-        ivThumb.setOnClickListener(new View.OnClickListener(){
+        ivIcon.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 String url = MainActivity.URL_PREFIX + "movie/" +
                         movie.getMovieId() + "/videos?api_key=" +
-                        getString(R.string.moviedb_api_key);;
+                        getString(R.string.moviedb_api_key);
                 client.get(url, null,
                         new JsonHttpResponseHandler() {
                             @Override
                             public void onSuccess(int statusCode, Headers headers, JSON json) {
                                 try {
                                     ArrayList<String[]> keys = getVideoKeys(json.jsonObject.getJSONArray("results"));
+                                    ArrayList<String[]> filtered = getVideosFromSite(keys, "YouTube");
+                                    String[] data = filtered.get(0);
+                                    assert data[2] != null;
+                                    Toast.makeText(getApplicationContext(), "Playing " + data[2], Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(context, MovieTrailerActivity.class);
-                                    String[] data = keys.get(0);
-                                    if (!data[1].equals("YouTube")) {
-                                        Log.e(TAG, "Only Youtube videos supported");
-                                        Toast.makeText(getApplicationContext(), "Only Youtube videos supported", Toast.LENGTH_SHORT).show();
-                                    }
-                                    else {
-                                        assert data[2] != null;
-                                        Toast.makeText(getApplicationContext(), "Playing " + data[2], Toast.LENGTH_SHORT).show();
-                                        intent.putExtra(VIDEO_ID, data[0]);
-                                        startActivity(intent);
-
-                                    }
+                                    intent.putExtra(VIDEO_ID, data[0]);
+                                    startActivity(intent);
                                 } catch (JSONException e) {
                                     Log.e(TAG, "JSON Parsing Exception", e);
                                 }
@@ -128,14 +123,25 @@ public class DetailActivity extends AppCompatActivity {
         tvGenres.setText(movieGenres);
         String imageUrl;
         int placeHolderId;
-        imageUrl = movie.getPosterPath();
+        imageUrl = movie.getBackdropPath();
         placeHolderId = R.drawable.flicks_movie_placeholder;
         loadRoundImage(ivThumb, imageUrl, placeHolderId);
+        Glide.with(context).load(getDrawable(R.drawable.play_video)).fitCenter().into(ivIcon);
 
 
-        // vote average is 0..10, convert to 0..5 by dividing by 2
+        // vote average is 0 .. 10, convert to 0..5 by dividing by 2
         float voteAverage = movie.getVoteAverage().floatValue();
         rbVoteAverage.setRating(voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
+    }
+
+    private ArrayList<String[]> getVideosFromSite(ArrayList<String[]> allVideos, String site) {
+        ArrayList<String[]> siteVideos = new ArrayList<>();
+        for (String[] videoStruct: allVideos) {
+            if (videoStruct[1].equals(site)) {
+                siteVideos.add(videoStruct);
+            }
+        }
+        return siteVideos;
     }
 
     private ArrayList<String[]> getVideoKeys(JSONArray videos) throws JSONException {

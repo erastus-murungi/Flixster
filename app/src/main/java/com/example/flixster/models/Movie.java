@@ -32,7 +32,6 @@ public class Movie {
         this.mMovieId = movieId;
     }
 
-
     public String getReleaseDate() {
         return mReleaseDate;
     }
@@ -42,7 +41,7 @@ public class Movie {
     }
 
 //    private Integer mVoteCount;
-//    private Integer mPopularity;
+////    private Integer mPopularity;
 
     public void setGenres(Integer[] genres) {
         this.mGenres = genres;
@@ -51,7 +50,6 @@ public class Movie {
     public Integer[] getGenres() {
         return mGenres;
     }
-
 
     public Movie() {}
 
