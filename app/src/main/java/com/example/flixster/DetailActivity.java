@@ -105,7 +105,7 @@ public class DetailActivity extends YouTubeBaseActivity {
                                         youTubeInitializationResult.getErrorDialog((Activity) context, RECOVERY_REQUEST).show();
                                     }
                                     else {
-                                        Log.e(this.getClass().getSimpleName(), "Error initializing Youtube Player");
+                                        Log.e(this.getClass().getSimpleName(), getString(R.string.player_error));
                                         String error = String.format(getString(R.string.player_error), youTubeInitializationResult.toString());
                                         showToast(error);
                                     }

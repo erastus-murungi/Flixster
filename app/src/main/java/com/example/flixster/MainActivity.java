@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
@@ -29,10 +30,25 @@ public class MainActivity extends AppCompatActivity {
     public static final String NOW_PLAYING = "movie/now_playing";
     public static final String MOVIE_GENRES = "genre/movie/list";
     public static final String TAG = "MainActivity";
+    private static final int TIME_INTERVAL = 2000;
 
     List<Movie> movies;
     Map<Integer, String> genres;
     MovieAdapter movieAdapter;
+
+    private long mBackPressed;
+
+    /** press back twice to exit feature. */
+    @Override
+    public void onBackPressed() {
+        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis()) {
+            super.onBackPressed();
+            return;
+        } else {
+            Toast.makeText(getBaseContext(), getString(R.string.exit_press_back_twice_message), Toast.LENGTH_SHORT).show();
+        }
+        mBackPressed = System.currentTimeMillis();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "onFailure");
             }
         });
+
 
     }
 }
