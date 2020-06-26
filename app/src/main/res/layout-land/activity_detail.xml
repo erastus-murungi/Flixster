@@ -13,37 +13,31 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <com.google.android.youtube.player.YouTubePlayerView
+            android:id="@+id/youtube_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"/>
 
-            <ImageView
-                android:id="@+id/ivThumb"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:contentDescription="@string/movie_poster"
-                tools:srcCompat="@tools:sample/avatars" />
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <ImageView
-                android:id="@+id/ivIcon"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerInParent="true"
-                android:contentDescription="@string/play_icon" />
-        </RelativeLayout>
+<!--            <ImageView-->
+<!--                android:id="@+id/ivThumb"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:contentDescription="@string/movie_poster"-->
+<!--                tools:srcCompat="@tools:sample/avatars" />-->
 
+<!--            <ImageView-->
+<!--                android:id="@+id/ivIcon"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:contentDescription="@string/play_icon" />-->
+<!--        </RelativeLayout>-->
 
-        <TextView
-            android:id="@+id/tvDTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
-            android:fontFamily="@font/proxima_nova_alt_bold"
-            android:text="@string/movie_title"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#FFFFFF" />
 
         <LinearLayout
             android:id="@+id/line1"
