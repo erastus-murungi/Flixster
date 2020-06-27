@@ -1,12 +1,10 @@
 package com.example.flixster;
 
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;

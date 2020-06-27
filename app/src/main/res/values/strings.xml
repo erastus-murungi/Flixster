@@ -2,7 +2,7 @@
     <string name="app_name">Flixster</string>
     <string name="movie_title">Movie Title</string>
     <string name="text_view">Text View</string>
-    <string name="release_data">Release date:</string>
+    <string name="release_date">Release date: %s</string>
     <string name="genres">Genres:</string>
     <string name="movie_poster">Movie Poster</string>
     <string name="data_unavailable">Date Unavailable</string>

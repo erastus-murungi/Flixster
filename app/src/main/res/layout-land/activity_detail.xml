@@ -38,40 +38,19 @@
 <!--                android:contentDescription="@string/play_icon" />-->
 <!--        </RelativeLayout>-->
 
-
-        <LinearLayout
-            android:id="@+id/line1"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/release_data_tag"
-                android:layout_width="99dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="11dp"
-                android:ems="10"
-                android:fontFamily="@font/proxima_nova_bold"
-                android:text="@string/release_data"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                tools:text="@string/release_data" />
-
-            <TextView
-                android:id="@+id/tvDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="11dp"
-                android:fontFamily="@font/proxima_nova_regular"
-                android:text="@string/data_unavailable"
-                android:textAlignment="viewStart"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/proxima_nova_regular"
+            android:gravity="center"
+            android:text="@string/data_unavailable"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -92,19 +71,20 @@
                 android:layout_marginTop="7dp"
                 android:fontFamily="@font/proxima_nova_regular"
                 android:text="@string/text_view"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF"
                 android:textColorHighlight="#FF6D00"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <RatingBar
                 android:id="@+id/rbVoteAverage"
-                style="@android:style/Widget.Holo.Light.RatingBar.Indicator"
+                style="@android:style/Widget.Holo.Light.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginStart="0dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginBottom="3dp"
                 android:numStars="5"
                 android:progressTint="@color/colorAccent"
@@ -112,17 +92,21 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:id="@+id/genres_tag"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="0dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="30dp"
                     android:ems="10"
                     android:fontFamily="@font/proxima_nova_bold"
+                    android:gravity="center"
                     android:text="@string/genres"
+                    android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     tools:text="@string/genres" />
@@ -131,10 +115,12 @@
                     android:id="@+id/tvGenres"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="0dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/proxima_nova_regular"
                     android:text="@string/text_view"
+                    android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp" />
             </LinearLayout>

@@ -107,7 +107,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                 if (genre != null)
                     g.add(genre);
             }
-            return TextUtils.join(", ", g);
+            return TextUtils.join("\n", g);
         }
 
 
