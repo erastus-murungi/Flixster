@@ -39,7 +39,7 @@
 <!--        </RelativeLayout>-->
 
         <RatingBar
-            android:id="@+id/rbVoteAverage"
+            android:id="@+id/votesAverageRatingBar"
             style="@android:style/Widget.Holo.RatingBar.Indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
 
 
         <TextView
-            android:id="@+id/tvDate"
+            android:id="@+id/dateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -109,7 +109,7 @@
 
 
             <TextView
-                android:id="@+id/tvDOverview"
+                android:id="@+id/overviewTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
@@ -144,7 +144,7 @@
                     tools:text="@string/genres" />
 
                 <TextView
-                    android:id="@+id/tvGenres"
+                    android:id="@+id/genreTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

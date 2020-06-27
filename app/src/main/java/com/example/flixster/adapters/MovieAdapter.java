@@ -1,6 +1,5 @@
 package com.example.flixster.adapters;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -75,23 +74,22 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView tvTitle;
-        TextView tvOverview;
-        ImageView ivPoster;
+        TextView titleTextView;
+        TextView overviewTextView;
+        ImageView posterImageView;
 
-        @SuppressLint("CutPasteId")
         public MovieViewHolder(@NonNull ItemMovieBinding binding) {
             super(binding.getRoot());
-            tvTitle = binding.tvTitle;
-            tvOverview = binding.tvOverview;
-            ivPoster = binding.ivPoster;
+            titleTextView = binding.titleTextView;
+            overviewTextView = binding.overviewTextView;
+            posterImageView = binding.posterImageView;
 
             itemView.setOnClickListener(this);
         }
 
         public void bind(Movie movie) {
-            tvTitle.setText(movie.getTitle());
-            tvOverview.setText(movie.getOverview());
+            titleTextView.setText(movie.getTitle());
+            overviewTextView.setText(movie.getOverview());
             String imageUrl;
             int placeHolderId;
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -101,7 +99,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                 imageUrl = movie.getPosterPath();
                 placeHolderId = R.drawable.flicks_movie_placeholder;
             }
-            loadRoundImage(ivPoster, imageUrl, placeHolderId);
+            loadRoundImage(posterImageView, imageUrl, placeHolderId);
         }
 
         private String getGenres(Movie movie){

@@ -35,12 +35,8 @@ public class DetailActivity extends YouTubeBaseActivity {
     Movie movie;
     String movieGenres;
 
-    TextView tvDOverview;
-    TextView voteCountTextView;
-    TextView tvDate;
-    TextView tvGenres;
-    TextView popularityTextView;
-    RatingBar rbVoteAverage;
+    TextView overviewTextView, voteCountTextView, dateTextView, genreTextView, popularityTextView;
+    RatingBar votesAverageRatingBar;
     Context context;
     AsyncHttpClient client;
     YouTubePlayerView youTubeView;
@@ -63,12 +59,12 @@ public class DetailActivity extends YouTubeBaseActivity {
         voteCountTextView.setText(getString(R.string.votes_count, movie.getVoteCount()));
         popularityTextView.setText(getString(R.string.popularity_i, movie.getPopularity()));
 
-        tvDOverview.setText(movie.getOverview());
-        tvDate.setText(movie.getReleaseDate());
-        tvGenres.setText(movieGenres);
+        overviewTextView.setText(movie.getOverview());
+        dateTextView.setText(movie.getReleaseDate());
+        genreTextView.setText(movieGenres);
         // vote average is 0 .. 10, convert to 0..5 by dividing by 2
         float voteAverage = movie.getVoteAverage().floatValue();
-        rbVoteAverage.setRating(voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
+        votesAverageRatingBar.setRating(voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
     }
 
     private void getMovieAndGenresFromIntent() {
@@ -132,10 +128,10 @@ public class DetailActivity extends YouTubeBaseActivity {
     }
 
     private void bindViews() {
-        tvDOverview = binding.tvDOverview;
-        rbVoteAverage = binding.rbVoteAverage;
-        tvDate = binding.tvDate;
-        tvGenres = binding.tvGenres;
+        overviewTextView = binding.overviewTextView;
+        votesAverageRatingBar = binding.votesAverageRatingBar;
+        dateTextView = binding.dateTextView;
+        genreTextView = binding.genreTextView;
         youTubeView = binding.youtubeView;
         voteCountTextView = binding.votesCountTextView;
         popularityTextView = binding.popularityTextView;

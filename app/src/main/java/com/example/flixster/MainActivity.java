@@ -41,11 +41,9 @@ public class MainActivity extends AppCompatActivity {
     List<Movie> movies;
     Map<Integer, String> genres;
     MovieAdapter movieAdapter;
-
     ActivityMainBinding binding;
 
     private long mBackPressed;
-
     /** press back twice to exit feature. */
     @Override
     public void onBackPressed() {
@@ -66,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
         // set the action bar title
         setTitle(getString(R.string.now_playing));
 
-        RecyclerView rvMovies = binding.rvMovies;
+        RecyclerView moviesRecyclerView = binding.moviesRecyclerView;
 
         movies = new ArrayList<>();
         genres = new HashMap<>();
         movieAdapter = new MovieAdapter(this, movies, genres);
-        rvMovies.setAdapter(movieAdapter);
-        rvMovies.setLayoutManager(new LinearLayoutManager(this));
+        moviesRecyclerView.setAdapter(movieAdapter);
+        moviesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         AsyncHttpClient client = new AsyncHttpClient();
 
