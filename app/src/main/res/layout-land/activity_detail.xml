@@ -38,13 +38,26 @@
 <!--                android:contentDescription="@string/play_icon" />-->
 <!--        </RelativeLayout>-->
 
+        <RatingBar
+            android:id="@+id/rbVoteAverage"
+            style="@android:style/Widget.Holo.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="3dp"
+            android:numStars="5"
+            android:progressTint="@color/colorAccent"
+            android:stepSize="0.5" />
+
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/proxima_nova_regular"
             android:gravity="center"
             android:text="@string/data_unavailable"
@@ -76,19 +89,6 @@
                 android:textColor="#FFFFFF"
                 android:textColorHighlight="#FF6D00"
                 android:textSize="16sp" />
-
-            <RatingBar
-                android:id="@+id/rbVoteAverage"
-                style="@android:style/Widget.Holo.Light.RatingBar.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="3dp"
-                android:numStars="5"
-                android:progressTint="@color/colorAccent"
-                android:stepSize="0.5" />
 
             <LinearLayout
                 android:layout_width="match_parent"

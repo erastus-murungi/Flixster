@@ -6,23 +6,51 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Date;
 
 import org.parceler.Parcel;
 
 @Parcel
 public class Movie {
+    private final SimpleDateFormat mDateParser = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
     private String mPosterPath;
     private String mTitle;
     private String mOverview;
     private String mBackdropPath;
     private Double mVoteAverage;
     private Integer[] mGenres;
-    private String mReleaseDate;
+    private Date mReleaseDate;
     private Integer mMovieId;
+    private Double mPopularity;
+    private Integer mVoteCount;
+
+    public Double getPopularity() {
+        return mPopularity;
+    }
+
+    public void setPopularity(Double mPopularity) {
+        this.mPopularity = mPopularity;
+    }
+
+    public Integer getVoteCount() {
+        return mVoteCount;
+    }
+
+    public void setVoteCount(Integer mVoteCount) {
+        this.mVoteCount = mVoteCount;
+    }
 
     public Integer getMovieId() {
         return mMovieId;
@@ -33,15 +61,9 @@ public class Movie {
     }
 
     public String getReleaseDate() {
-        return mReleaseDate;
+        LocalDate date = mReleaseDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(date);
     }
-
-    public void setReleaseDate(String mReleaseDate) {
-        this.mReleaseDate = mReleaseDate;
-    }
-
-//    private Integer mVoteCount;
-////    private Integer mPopularity;
 
     public void setGenres(Integer[] genres) {
         this.mGenres = genres;
@@ -53,15 +75,17 @@ public class Movie {
 
     public Movie() {}
 
-    public Movie(JSONObject jsonObject) throws JSONException {
+    public Movie(JSONObject jsonObject) throws JSONException, ParseException {
         mPosterPath = jsonObject.getString("poster_path");
         mBackdropPath = jsonObject.getString("backdrop_path");
         mTitle = jsonObject.getString("title");
         mOverview = jsonObject.getString("overview");
         mVoteAverage = jsonObject.getDouble("vote_average");
         mGenres = toIntArray(jsonObject.getJSONArray("genre_ids"));
-        mReleaseDate = jsonObject.getString("release_date");
+        mReleaseDate = mDateParser.parse(jsonObject.getString("release_date"));
         mMovieId = jsonObject.getInt("id");
+        mPopularity = jsonObject.getDouble("popularity");
+        mVoteCount = jsonObject.getInt("vote_count");
     }
 
     private static Integer[] toIntArray(JSONArray jsonArray) throws JSONException {
@@ -69,6 +93,7 @@ public class Movie {
             Log.e("Movie", "null pointer received instead of json array");
             return new Integer[1];
         }
+        //
         Integer[] numbers = new Integer[jsonArray.length()];
 
         for (int i = 0; i < jsonArray.length(); ++i) {
@@ -77,7 +102,7 @@ public class Movie {
         return numbers;
     }
 
-    public static List<Movie> fromJsonArray(final JSONArray movieJsonArray) throws JSONException {
+    public static List<Movie> fromJsonArray(final JSONArray movieJsonArray) throws JSONException, ParseException {
         List<Movie> movies = new ArrayList<>();
         for (int i = 0; i < movieJsonArray.length(); i++) {
             movies.add(new Movie(movieJsonArray.getJSONObject(i)));

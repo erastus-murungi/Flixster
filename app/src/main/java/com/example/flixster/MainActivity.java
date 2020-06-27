@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -88,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(TAG, "Movies: " + movies.size());
                 } catch (JSONException e) {
                     Log.e(TAG, "Hit Json Exception", e);
+                } catch (ParseException e) {
+                    Log.e(TAG, "Probably couldn't parse date");
                 }
             }
 
