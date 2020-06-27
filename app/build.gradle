@@ -1,6 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    buildFeatures {
+        viewBinding true
+    }
+
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
 
@@ -19,12 +24,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-}
-
-android {
-    buildFeatures {
-        viewBinding true
     }
 }
 

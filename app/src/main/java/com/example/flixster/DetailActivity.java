@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.flixster.adapters.MovieAdapter;
+import com.example.flixster.databinding.ActivityDetailBinding;
 import com.example.flixster.models.Movie;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -41,13 +42,14 @@ public class DetailActivity extends YouTubeBaseActivity {
     Context context;
     AsyncHttpClient client;
     YouTubePlayerView youTubeView;
+    ActivityDetailBinding binding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
-
+        binding = ActivityDetailBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         context = this;
         // client to request for videos
@@ -125,11 +127,11 @@ public class DetailActivity extends YouTubeBaseActivity {
     }
 
     private void bindViews() {
-        tvDOverview = findViewById(R.id.tvDOverview);
-        rbVoteAverage = findViewById(R.id.rbVoteAverage);
-        tvDate = findViewById(R.id.tvDate);
-        tvGenres = findViewById(R.id.tvGenres);
-        youTubeView = findViewById(R.id.youtube_view);
+        tvDOverview = binding.tvDOverview;
+        rbVoteAverage = binding.rbVoteAverage;
+        tvDate = binding.tvDate;
+        tvGenres = binding.tvGenres;
+        youTubeView = binding.youtubeView;
     }
 
 

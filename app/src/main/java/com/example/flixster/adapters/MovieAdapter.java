@@ -21,6 +21,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.flixster.DetailActivity;
 import com.example.flixster.R;
+import com.example.flixster.databinding.ActivityMainBinding;
+import com.example.flixster.databinding.ItemMovieBinding;
 import com.example.flixster.models.Movie;
 
 import org.parceler.Parcels;
@@ -42,19 +44,23 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     Context context;
     List<Movie> movies;
     Map<Integer, String> genres;
-
+    ItemMovieBinding binding;
 
     public MovieAdapter(Context context, List<Movie> movies, Map<Integer, String> genres) {
         this.context = context;
         this.movies = movies;
         this.genres =  genres;
+
     }
 
     @NonNull
     @Override
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
-        return new MovieViewHolder(movieView);
+        LayoutInflater layoutInflater =
+                LayoutInflater.from(parent.getContext());
+        binding =
+                ItemMovieBinding.inflate(layoutInflater, parent, false);
+        return new MovieViewHolder(binding);
     }
 
     @Override
@@ -75,11 +81,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         ImageView ivPoster;
 
         @SuppressLint("CutPasteId")
-        public MovieViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tvTitle = itemView.findViewById(R.id.tvTitle);
-            tvOverview = itemView.findViewById(R.id.tvOverview);
-            ivPoster = itemView.findViewById(R.id.ivPoster);
+        public MovieViewHolder(@NonNull ItemMovieBinding binding) {
+            super(binding.getRoot());
+            tvTitle = binding.tvTitle;
+            tvOverview = binding.tvOverview;
+            ivPoster = binding.ivPoster;
 
             itemView.setOnClickListener(this);
         }

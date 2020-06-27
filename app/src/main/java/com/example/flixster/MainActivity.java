@@ -9,12 +9,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.flixster.adapters.MovieAdapter;
+import com.example.flixster.databinding.ActivityMainBinding;
 import com.example.flixster.models.Movie;
 
 import org.json.JSONArray;
@@ -28,6 +28,7 @@ import java.util.Map;
 
 import okhttp3.Headers;
 
+
 public class MainActivity extends AppCompatActivity {
     public static final String URL_PREFIX = "https://api.themoviedb.org/3/";
     public static final String NOW_PLAYING = "movie/now_playing";
@@ -35,11 +36,12 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     private static final int TIME_INTERVAL = 2000;
 
-//    MainActivityBinding binding;
 
     List<Movie> movies;
     Map<Integer, String> genres;
     MovieAdapter movieAdapter;
+
+    ActivityMainBinding binding;
 
     private long mBackPressed;
 
@@ -58,15 +60,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-//        binding = MainActivityBinding.inflate(getLayoutInflater());
-//        View view = binding.getRoot();
-
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         // set the action bar title
         setTitle(getString(R.string.now_playing));
 
-        RecyclerView rvMovies = findViewById(R.id.rvMovies);
+        RecyclerView rvMovies = binding.rvMovies;
 
         movies = new ArrayList<>();
         genres = new HashMap<>();
