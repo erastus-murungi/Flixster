@@ -14,5 +14,6 @@
     <string name="seek_to_hint">Seconds</string>
     <string name="about">About</string>
     <string name="go_back">Back</string>
-
+    <string name="votes_count">"Votes Count: %d  "</string>
+    <string name="popularity_i">"Popularity: %.2f %%"</string>
 </resources>

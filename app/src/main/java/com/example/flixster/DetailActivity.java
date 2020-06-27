@@ -36,8 +36,10 @@ public class DetailActivity extends YouTubeBaseActivity {
     String movieGenres;
 
     TextView tvDOverview;
+    TextView voteCountTextView;
     TextView tvDate;
     TextView tvGenres;
+    TextView popularityTextView;
     RatingBar rbVoteAverage;
     Context context;
     AsyncHttpClient client;
@@ -57,6 +59,9 @@ public class DetailActivity extends YouTubeBaseActivity {
         bindViews();
         getMovieAndGenresFromIntent();
         fillYoutubeView();
+
+        voteCountTextView.setText(getString(R.string.votes_count, movie.getVoteCount()));
+        popularityTextView.setText(getString(R.string.popularity_i, movie.getPopularity()));
 
         tvDOverview.setText(movie.getOverview());
         tvDate.setText(movie.getReleaseDate());
@@ -132,6 +137,8 @@ public class DetailActivity extends YouTubeBaseActivity {
         tvDate = binding.tvDate;
         tvGenres = binding.tvGenres;
         youTubeView = binding.youtubeView;
+        voteCountTextView = binding.votesCountTextView;
+        popularityTextView = binding.popularityTextView;
     }
 
 

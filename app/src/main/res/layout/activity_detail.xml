@@ -31,6 +31,36 @@
             android:progressTint="@color/colorAccent"
             android:stepSize="0.5" />
 
+        <TextView
+            android:id="@+id/votesCountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/proxima_nova_regular"
+            android:gravity="center"
+            android:text="@string/votes_count"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/popularityTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/proxima_nova_regular"
+            android:gravity="center"
+            android:text="@string/popularity_i"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
+
 
         <TextView
             android:id="@+id/tvDate"
